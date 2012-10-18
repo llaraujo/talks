@@ -1,0 +1,156 @@
+  <!DOCTYPE html>
+<html>
+  <head>
+    <title>Pré-processadores de CSS</title>
+    <meta charset='utf-8'>
+    <script src='slides.js'></script>
+    <link rel="stylesheet" href="mystyles.css">
+  </head>
+  <body id="body" style='display: none'>
+    <section class='slides layout-regular template-default'>
+
+      <article id="capa"></article>
+      <!-- 
+      <article id="o-que-vamos-falar" class="bg"> 
+        <h3>
+          Do que vamos falar?
+        </h3>
+        <ul class="to-build">
+          <li>O que é um pré-processador?</li>
+          <li>O que um pré-processador de CSS faz?</li>
+          <li>Quais pré-processadores de CSS existem?</li>
+          <li>Quais os principais problemas ao desenvolver CSS?</li>
+          <li>Quais as vantagens/desvantagens de se utilizar um pré-processador de CSS?</li>
+          <li>Como usar?</li>
+          <li>Plus+++ ?</li>
+          <li>Bora pra prática? xD</li>
+        </ul>
+      </article>
+        -->
+      <article id="o-que-e-um-pre-processador" class="bg">
+        <h3>O que é um pré-processador e o que ele faz?</h3>
+      </article>
+      <article id="quais-existem" class="bg">
+        <h3>Quais pré-processadores de CSS existem?</h3><br/>
+        <h3 style="text-align:center;">(mais utilizados)</h3>
+      </article>
+      <article class="bg">
+        <h3>Quais os principais problemas ao desenvolver CSS?</h3><br/><br/>
+        <ul class="build">
+          <li>Falta de recursos básicos: variáveis e operadores matemáticos</li>
+          <li>Dificuldade na manutenção de grandes estruturas</li>
+          <li>Repetição de código</li>
+        </ul>
+        <br/>
+        <br/>
+        <br/>
+        <img src="img/borapratica.gif" style="margin:0 auto;width:250px;display:block;"/>
+      </article>
+      <article class="bg">
+        <h3>Quais as vantagens de se utilizar um pré-processador de CSS?</h3>
+        <ul class="build">
+          <li>Variáveis</li>
+          <li>Operadores matemáticos</li>
+          <li>Reaproveitamento de código com <i>Mixins</i></li>
+          <li>Criação de funções</li>
+          <li>Escrita de código hierarquica</li>
+          <li>Modularização do CSS em arquivos separados</li>
+          <li>Melhora o <b>fluxo de trabalho</b> em equipes de grande porte</li>
+        </ul>
+        <ul class="build" style="list-style:none !important;">
+          <li><img src="img/lol.png" style="height:100px;display:block;margin:0 auto;" /></li>
+        </ul>
+      </article>
+      <article class="bg">
+        <h3>Quais as <b><i>des</i></b>vantagens de se utilizar um pré-processador de CSS?</h3>
+        <ul class="build">
+          <li>Aprender as variáveis/funções/recursos do pré-processador</li>
+          <li>Preparar ambiente de desenvolvimento (comum em qualquer desenvolvimento)</li>
+          <li>Em equipes de grande porte, manter o ambiente de desenvolvimento igual (versão ruby, versão pré-processador, etc)</li>
+        </ul>
+      </article>
+
+      <article id="o-que-um-pre-processador-faz" class="bg">
+        <h3>Exemplos de código</h3>
+      </article>
+      <article class="bg">
+        <h3>Sass : o que é necessário para utilizar?
+          <img src="img/sass.png" style="position:absolute;height:200px;right:20px;"/>
+        </h3>
+        <ul class="build">
+          <li>Por padrão: funcionamento server-side</li>
+          <li>Sistema: Windows, Mac OS, Linux</li>
+          <li>Instalar Ruby</li>
+          <li>Instalar o Sass</li>
+          <li>Editor de texto</li>
+          <li>Documentação oficial: http://sass-lang.com/</li>
+          <li>Fazer! xD</li>
+        </ul>
+      </article>
+      <article class="bg">
+        <h3>Less : o que é necessário para utilizar?
+          <img src="img/less.png" style="position:absolute;height:100px;right:20px;"/>
+        </h3>
+        <br/>
+        <ul class="build">
+          <li>Por padrão: funcionamento client-side (processamento repassado ao usuário)</li>
+          <li>Opção: Funcionamento Server-side utilizando Node.js (compila o css)</li>
+          <li>Sistema: Windows, Mac OS, Linux</li>
+          <li>Utilizando versão standard: incluir js de interpretação na sua página</li>
+          <li>Utilizando versão compilada: Instalar Node.js</li>
+          <li>Editor de texto</li>
+          <li>Documentação oficial: http://lesscss.org/</li>
+          <li>Fazer! xD</li>
+        </ul>
+      </article>
+      <article class="bg">
+        <h3>Compass: framework para Sass</h3>
+        <img src="img/5.png" style="display:block;margin:30px auto 15px"/>
+        <ul class="build">
+          <li>Helpers para css3</li>
+          <li>Utilities</li>
+          <li>Exemplo: Funções para criação de sprites</li>
+        </ul>
+      </article>
+      <article class="bg">
+        <h3>Bora pra prática? xD</h3><br/>
+        <img src="img/borapraticar2.jpg" style="width:100%;height:auto;"/>
+      </article>
+    </section>
+    <script>
+    var e = document.getElementById("body");
+
+    e.onclick = function() {
+
+      if (RunPrefixMethod(document, "FullScreen") || RunPrefixMethod(document, "IsFullScreen")) {
+        RunPrefixMethod(document, "CancelFullScreen");
+      }
+      else {
+        RunPrefixMethod(e, "RequestFullScreen");
+      }
+
+    }
+
+    var pfx = ["webkit", "moz", "ms", "o", ""];
+    function RunPrefixMethod(obj, method) {
+      
+      var p = 0, m, t;
+      while (p < pfx.length && !obj[m]) {
+        m = method;
+        if (pfx[p] == "") {
+          m = m.substr(0,1).toLowerCase() + m.substr(1);
+        }
+        m = pfx[p] + m;
+        t = typeof obj[m];
+        if (t != "undefined") {
+          pfx = [pfx[p]];
+          return (t == "function" ? obj[m]() : obj[m]);
+        }
+        p++;
+      }
+
+    }
+
+    </script>
+  </body>
+</html>
